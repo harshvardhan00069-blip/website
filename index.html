@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvettides | We make the best apparel.</title>
+    <style>
+        /* General Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #f4f4f4;
+            padding: 8px 0;
+            font-size: 0.75rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop'); /* General Fashion/Studio Image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* Collections Grid */
+        .collections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 80vh;
+        }
+
+        .collection-item {
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .collection-item:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1542272617-08f08630252f?q=80&w=2070&auto=format&fit=crop'); /* Fabric/Texture Image */
+        }
+
+        .collection-item:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=2070&auto=format&fit=crop'); /* Lifestyle/Apparel Image */
+        }
+
+        .collection-content {
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .collection-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Category Links */
+        .categories {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cat-link {
+            font-size: 2rem;
+            margin: 0 30px;
+            font-weight: 700;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .cat-link:hover, .cat-link.active {
+            color: #1a1a1a;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: #fafafa;
+        }
+
+        .quote-text {
+            font-size: 2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-family: serif;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Newsletter / Factory Talk */
+        .newsletter {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .newsletter h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            outline: none;
+        }
+
+        .input-group button {
+            padding: 15px 30px;
+            background: #444;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background: #fff;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #666;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .collections {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; /* Simple hide for mobile study purpose */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>COASTAL STUDIO, 04:00 PM &nbsp; — &nbsp; JOIN THE MOVEMENT</span>
+    </div>
+
+    <header>
+        <div class="container flex justify-between items-center">
+            <div class="nav-links">
+                <a href="#">SHOP</a>
+                <a href="#">STORY</a>
+                <a href="#">GUIDES</a>
+            </div>
+            
+            <a href="#" class="logo">VELVETTIDES</a>
+
+            <div class="nav-links">
+                <a href="#">SEARCH</a>
+                <a href="#">CART (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">New Season Arrival</h1>
+                <p class="hero-subtitle">Premium fabric. Limited to 100 pieces.</p>
+                <a href="#" class="btn btn-outline uppercase">Shop The Collection</a>
+            </div>
+        </section>
+
+        <section class="collections">
+            <div class="collection-item">
+                <div class="hero-overlay"></div>
+                <div class="collection-content">
+                    <h2 class="collection-title">Signature Velvet</h2>
+                    <a href="#" class="btn uppercase">Shop Now</a>
+                </div>
+            </div>
+            <div class="collection-item">
+                <div class="hero-overlay"></div>
+                <div class="collection-content">
+                    <h2 class="collection-title">Organic Cotton</h2>
+                    <a href="#" class="btn uppercase">Shop Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="container">
+                <a href="#" class="cat-link active">WOMENS</a>
+                <a href="#" class="cat-link">MENS</a>
+                <a href="#" class="cat-link">ACCESSORIES</a>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="container">
+                <p class="quote-text">"There is always a new tide to catch, a new fabric to explore. We do one thing, and we do it with passion."</p>
+                <p class="quote-author">THE VELVETTIDES TEAM</p>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <h2 class="uppercase">Join The Tide</h2>
+                <p>Sign up for our newsletter. Early access, exclusive drops, and inspiration.</p>
+                <div class="input-group">
+                    <input type="email" placeholder="Email address">
+                    <button class="uppercase">Sign Up</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="#">Ordering</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Studio Visit</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Velvettides</h4>
+                    <p style="color: #666; margin-bottom: 10px;">&copy; 2025 Velvettides. All rights reserved.</p>
+                    <a href="#" style="color: #999; font-size: 0.8rem;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
